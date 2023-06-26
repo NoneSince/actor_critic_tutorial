@@ -23,7 +23,7 @@ def n_step_actor_critic(env, policy, n=5, learning_rate=0.0002, value_learning_r
             next_state, reward, terminated, truncated, info = env.step(action)
             # store the current state,action, and reward
             states.append(state)
-            action.append(action)
+            actions.append(action)
             rewards.append(reward)
             next_states.append(next_state)
             dones.append(1 if terminated else 0)
@@ -40,7 +40,7 @@ def n_step_actor_critic(env, policy, n=5, learning_rate=0.0002, value_learning_r
                 policy_parameters = policy_parameters + learning_rate * I * TD_error * log_likelihood_grad
                 policy.set_parameters_vector(policy_parameters)
                 states.popleft()
-                action.popleft()
+                actions.popleft()
                 rewards.popleft()
                 next_states.popleft()
             # n step loop
@@ -61,7 +61,7 @@ def n_step_actor_critic(env, policy, n=5, learning_rate=0.0002, value_learning_r
 
                 # delete the oldest state
                 states.popleft()
-                action.popleft()
+                actions.popleft()
                 rewards.popleft()
                 next_states.popleft()
 
