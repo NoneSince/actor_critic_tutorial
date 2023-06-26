@@ -1,4 +1,4 @@
-from parameterized_policy import ParameterizedGaussianPolicy
+from pg_tutorial.parameterized_policy import ParameterizedGaussianPolicy
 
 class PendulumNNPolicy:
     def __init__(self, state_dim, action_dim, action_range):
