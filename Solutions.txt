@@ -131,7 +131,6 @@ def reinforce_with_baseline(env, policy, gamma=0.97, learning_rate=0.0005, value
 
     return mean_eval_rewards
 
-
 # second part:
 env = gym.make(game, render_mode="rgb_array", g=gravity)
 policy = PendulumVanillaPolicy()
